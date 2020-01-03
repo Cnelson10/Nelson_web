@@ -1,0 +1,18 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.dropdown a {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    color: darkgrey;
+    text-decoration: none;
+}

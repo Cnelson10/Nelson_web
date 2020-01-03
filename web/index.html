@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AutoLunacy</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="styles/dropdownStyle.css" rel="stylesheet" type="text/css" /> 
+        <link href="styles/style.css" rel="stylesheet" type="text/css" />
+        <link href="styles/listStyle.css" rel="stylesheet" type="text/css" />
+        <link href="styles/logonStyle.css" rel="stylesheet" type="text/css" />
+        <link href="styles/slideShowStyle.css" rel="stylesheet" type="text/css" />
+        
+        <link rel="shortcut icon" href="icons/favicon.ico">
+    </head>
+    <body>
+        <div id="titleNav">
+            
+            <div id="title">AUTOLUNACY</div>
+        
+            <div id="nav">
+                <div class="dropdown">
+                    <a href="#/home">Home</a>
+                </div>
+                <div class="dropdown">
+                    <a href="#/blog">Blog</a>
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader">Account</div>
+                    <div class="dropContent" id="accountDropDown">
+                        <a href="#/userRegister">Register</a> <br/>
+                        <a href="#/userLogon">Log On</a> <br/>
+                        <a href="#/profile">Profile</a> <br/>
+                        <a href="#/userLogoff">Log Off</a> <br/>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropHeader">Search</div>
+                    <div class="dropContent" id="searchDropDown">
+                        <a href="#/users">Users</a> <br/>
+                        <a href="#/userFind">Find User</a> <br/>
+                        <a href="#/posts">Ad Posts</a> <br/>
+                        <a href="#/slideShow">Slide Show</a> <br/>
+                    </div> 
+                </div>
+            </div>
+            
+        </div>
+        
+        <div id="content">
+        </div>
+        
+        <div id="footer">Chris Nelson</div>
+        <script src="js/routeFw.js"></script>
+        <script src="js/ajax.js"></script>
+        <script src="js/ajax2.js"></script>
+        <script src="js/Utils.js"></script>
+        <script src="js/makeTable.js"></script>
+        <script src="js/CRUD_icons.js"></script>  
+        <script src="js/makeSlideshow.js"></script>
+        <script src="js/components/blog.js"></script>
+        <script src="js/components/home.js"></script>
+        <script src="js/components/users.js"></script>
+        <script src="js/components/logon.js"></script>
+        <script src="js/components/posts.js"></script>
+        <script src="js/components/slideShow.js"></script>
+        <script>
+            "use strict";
+            var myRoutes = [];
+
+            myRoutes['/'] = home;
+            myRoutes['/home'] = home;
+            myRoutes['/blog'] = blog;
+            myRoutes['/users'] = users.list;
+            myRoutes['/userRegister'] = users.insertUI;
+            myRoutes['/userFind'] = users.findUI;
+            myRoutes['/userLogon'] = logon.UI;
+            myRoutes['/userLogoff'] = logon.logoffUI;
+            myRoutes['/profile'] = logon.profileUI;
+            myRoutes['/posts'] = posts.list;
+            myRoutes['/postUpload'] = posts.insertUI;
+            myRoutes['/slideShow'] = slideShow.list;
+            myRoutes['/userUpdate'] = function () {};  // do nothing -- the code will handle the UI
+            myRoutes['/postUpdate'] = function () {};  // do nothing -- the code will handle the UI
+            
+            var myRoutes = routeFw({
+                routeArray: myRoutes,
+                startingPath: '#/home',
+                contentId: "content"
+            });
+                        
+            myRoutes.printRoutes();
+            
+        </script>
+    </body>
+</html>
